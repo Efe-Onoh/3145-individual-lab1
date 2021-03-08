@@ -182,11 +182,22 @@
                     </p>
 
                     <p>
-                        <input type="radio" id="home" value="Home" v-model="order.method">
-                        <label for="home">Home</label>
+
+                        <p>sort by</p>
                         
-                        <input type="radio" id="business" value="Business" v-model="order.method">
-                        <label for="business">Business</label>
+                        <input type="radio" id="subject" value="Subject" v-model="sortBy">
+                        <label for="subject">Subject</label>
+                        
+                        <input type="radio" id="location" value="Location" v-model="sortBy">
+                        <label for="location">Location</label>
+
+                    
+                        <input type="radio" id="price" value="Price" v-model="sortBy">
+                        <label for="price">Price</label>
+                            
+                        <input type="radio" id="availability" value="Availability" v-model="sortBy">
+                        <label for="availability">Availability</label>
+                        
                     </p>
 
                     <h2>Order Information</h2>
@@ -218,6 +229,7 @@
                 toShop: true,
                 toCart: false,
                 toCheckout: false,
+                sortBy: 'Price',
                 order:{
                     firstName: '',
                     lastName: '',

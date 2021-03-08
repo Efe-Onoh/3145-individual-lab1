@@ -1,0 +1,80 @@
+let lessons = [
+
+        {
+            subject: 'maths',
+            location: 'dubai',
+            price: 100,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'english',
+            location: 'dubai',
+            price: 50,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'biology',
+            location: 'dubai',
+            price: 250,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'chemistry',
+            location: 'dubai',
+            price: 150,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Chess',
+            location: 'dubai',
+            price: 100,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Poker',
+            location: 'dubai',
+            price: 200,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'French',
+            location: 'dubai',
+            price: 400,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Art',
+            location: 'dubai',
+            price: 150,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Engineering',
+            location: 'dubai',
+            price: 300,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Design',
+            location: 'dubai',
+            price: 150,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        },
+        {
+            subject: 'Spanish',
+            location: 'dubai',
+            price: 120,
+            numberOfSpaces: 5,
+            image: 'images/download.jpg',
+        }
+]

@@ -30,6 +30,41 @@
                         <span class="fas fa-cart-plus"></span>cart
                     </button>
     
+                    
+                    <p>
+
+                        <p>sort by</p> <!--finish this -->
+                        
+                        <input type="radio" id="subject" value="subject" v-model="sortBy">
+                        <label for="subject">Subject</label>
+                        
+                        <input type="radio" id="location" value="location" v-model="sortBy">
+                        <label for="location">Location</label>
+
+                    
+                        <input type="radio" id="price" value="price" v-model="sortBy">
+                        <label for="price">Price</label>
+                            
+                        <input type="radio" id="availability" value="numberOfSpaces" v-model="sortBy">
+                        <label for="availability">Availability</label>
+
+                        <p>{{sortBy}}</p>
+                        
+                    </p>
+
+                    <p>
+
+                        <p>sort order</p> 
+                        
+                        <input type="radio" id="ascending" value="ascending" v-model="sortOrder">
+                        <label for="ascending">Ascending</label>
+                        
+                        <input type="radio" id="descending" value="descending" v-model="sortOrder">
+                        <label for="descending">Descending</label>
+
+                        <p>{{sortOrder}}</p>
+                        
+                    </p>
 
                     <div v-for="lesson in sortedLessons">
 
@@ -181,24 +216,6 @@
                         <label for="gift">Ship As Gift?</label>
                     </p>
 
-                    <p>
-
-                        <p>sort by</p>
-                        
-                        <input type="radio" id="subject" value="Subject" v-model="sortBy">
-                        <label for="subject">Subject</label>
-                        
-                        <input type="radio" id="location" value="Location" v-model="sortBy">
-                        <label for="location">Location</label>
-
-                    
-                        <input type="radio" id="price" value="Price" v-model="sortBy">
-                        <label for="price">Price</label>
-                            
-                        <input type="radio" id="availability" value="Availability" v-model="sortBy">
-                        <label for="availability">Availability</label>
-                        
-                    </p>
 
                     <h2>Order Information</h2>
                     <p>First Name: {{order.firstName}}</p>
@@ -229,7 +246,8 @@
                 toShop: true,
                 toCart: false,
                 toCheckout: false,
-                sortBy: 'Price',
+                sortBy: 'price',
+                sortOrder: 'ascending',
                 order:{
                     firstName: '',
                     lastName: '',
@@ -312,6 +330,8 @@
                     alert('Order Submitted');
                 }
             },
+
+
             computed: {
 
                 cartItemCount(){
@@ -322,14 +342,22 @@
                 }*/
                 sortedLessons(){ // implement sort in ascending or descending order. if a > b ret -1 instead and vice versa.
                     let lessonArray = this.lessons.slice(0);
-                    function compare(a, b) {
+                    function compareAscending(a, b) {
                         if (a.price > b.price)
                             return 1;
                         if (a.price < b.price)
                             return -1;
                         return 0;
                     }
-                    return lessonArray.sort(compare);
+
+                    function compareDescending(a, b) {
+                        if (a.price > b.price)
+                            return -1;
+                        if (a.price < b.price)
+                            return 1;
+                        return 0;
+                    }
+                    return this.sortOrder === "ascending" ? lessonArray.sort(compareAscending) : lessonArray.sort(compareDescending);
                 }
 
             }

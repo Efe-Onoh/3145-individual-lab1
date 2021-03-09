@@ -342,20 +342,89 @@
                 }*/
                 sortedLessons(){ // implement sort in ascending or descending order. if a > b ret -1 instead and vice versa.
                     let lessonArray = this.lessons.slice(0);
+                    let sortBy = this.sortBy;
                     function compareAscending(a, b) {
+
+                      if(sortBy === "price"){ 
+                          
+                        
                         if (a.price > b.price)
                             return 1;
                         if (a.price < b.price)
                             return -1;
                         return 0;
+                      }
+
+                      else if(sortBy === "subject"){
+                          
+                        if (a.subject.toUpperCase() > b.subject.toUpperCase())
+                            return 1;
+                        if (a.subject.toUpperCase() < b.subject.toUpperCase())
+                            return -1;
+                        return 0;
+                      }
+
+                      else if(sortBy === "location"){
+
+                        if (a.location.toUpperCase() > b.location.toUpperCase())
+                            return 1;
+                        if (a.location.toUpperCase() < b.location.toUpperCase())
+                            return -1;
+                        return 0;
+
+                      }
+
+                      else{
+
+                        if (a.numberOfSpaces > b.numberOfSpaces)
+                            return 1;
+                        if (a.numberOfSpaces < b.numberOfSpaces)
+                            return -1;
+                        return 0;
+                      }
                     }
 
                     function compareDescending(a, b) {
+
+                        
+                      if(sortBy === "price"){ 
+                          
+                         
                         if (a.price > b.price)
                             return -1;
                         if (a.price < b.price)
                             return 1;
                         return 0;
+                        }
+  
+                        else if(sortBy === "subject"){
+                            
+                          if (a.subject.toUpperCase() > b.subject.toUpperCase())
+                              return -1;
+                          if (a.subject.toUpperCase() < b.subject.toUpperCase())
+                              return 1;
+                          return 0;
+                        }
+  
+                        else if(sortBy === "location"){
+  
+                          if (a.location.toUpperCase() > b.location.toUpperCase())
+                              return -1;
+                          if (a.location.toUpperCase() < b.location.toUpperCase())
+                              return 1;
+                          return 0;
+  
+                        }
+  
+                        else{
+  
+                          if (a.numberOfSpaces > b.numberOfSpaces)
+                              return -1;
+                          if (a.numberOfSpaces < b.numberOfSpaces)
+                              return 1;
+                          return 0;
+                        }
+                       
                     }
                     return this.sortOrder === "ascending" ? lessonArray.sort(compareAscending) : lessonArray.sort(compareDescending);
                 }

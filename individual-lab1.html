@@ -166,17 +166,17 @@
     
 
                     <p>
-                        <strong>First Name:</strong>
+                        <strong>Name:</strong>
 
-                        <input v-model.trim="order.firstName"/>
+                        <input required v-model.trim="order.name"/>
                     </p>
 
                     <p>
-                        <strong>Last Name:</strong>
+                        <strong>Phone:</strong>
 
-                        <input v-model.trim="order.lastName"/>
+                        <input v-model.number="order.phone" type="number"/>
                     </p>
-
+                
                     <p>
                         <strong>Address:</strong>
 
@@ -218,14 +218,25 @@
 
 
                     <h2>Order Information</h2>
-                    <p>First Name: {{order.firstName}}</p>
-                    <p>Last Name: {{order.lastName}}</p>
+                    <p>Name: {{order.name}}</p>
                     <p>Address: {{order.address}}</p>
                     <p>City: {{order.city}}</p>
+                    <p>Phone: {{order.phone}}</p>
                     <p>Zip: {{order.zip}}</p>
                     <p>State: {{order.state}}</p>
                     <p>gift: {{order.gift}}</p>
-                    <button v-on:click="submitForm">Place Order</button>
+
+                    <button v-on:click='submitForm' v-if="order.name && order.phone"><!--cartItemCount should return 0 or positive, 0 should be falsy, serving same purpose-->
+                        <span class="fas fa-cart-plus"></span>checkout
+                    </button>
+
+                    
+                    <p v-if="errors.length">
+                        <b>Please correct the following error(s):</b>
+                        <ul>
+                          <li v-for="error in errors">{{ error }}</li>
+                        </ul>
+                    </p>
                 </div>
                
             </main>
@@ -249,10 +260,10 @@
                 sortBy: 'price',
                 sortOrder: 'ascending',
                 order:{
-                    firstName: '',
-                    lastName: '',
+                    name: '',
                     address: '',
                     city: '',
+                    phone: '',
                     zip: '',
                     state: '',
                     method: 'Home',
@@ -266,7 +277,8 @@
                     AR: 'Arizona',
                     CA: 'California',
                     NV: 'Nevada'
-                }
+                },
+                errors: [],
             },
             methods: {
                 addToCart(lesson) {
@@ -328,7 +340,7 @@
                 },
 
                 submitForm(){
-                    alert('Order Submitted');
+                  alert("order submitted");
                 }
             },
 

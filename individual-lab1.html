@@ -439,18 +439,22 @@
 
                 validate(){
 
+                    /*create two regular expressions to check the correct pattern is being entered for name and phone number*/
                     let phoneRegex =  /^[0-9]{9,11}$/g;
                     let nameRegex = /^[A-Za-z]+$/ig;
 
-                    console.log(phoneRegex.test(this.order.phone) && nameRegex.test(this.order.name));
+                    /*create a boolean test to see if phone number and name have been entered and are valid*/
+                    let val = phoneRegex.test(this.order.phone) && nameRegex.test(this.order.name);
 
-                    if (phoneRegex.test(this.order.phone) && nameRegex.test(this.order.name) === true){
-                        console.log("hi");
-                        return 1;    //not entering. why?
+                    console.log(val);
+
+                    /*test validity. and return true if valid*/
+                    if (val){
+                        return 1;    //not entering. why? because of order of eval. stored in a variable and it worked.
                     }
                         
 
-                        console.log("hello");
+                        
                 },
 
             }

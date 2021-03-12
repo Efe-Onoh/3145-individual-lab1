@@ -174,7 +174,7 @@
                     <p>
                         <strong>Phone number:</strong>
 
-                        <input v-model.number="order.phone" type="tel" required/>
+                        <input v-model="order.phone" type="tel" required/>
                     </p>
                 
                     <p>
@@ -299,6 +299,9 @@
 
                 submitForm(){
                   alert("order submitted");
+                  this.order.name = null;
+                  this.order.phone = null;
+                  this.cart = [];
                 }
             },
 

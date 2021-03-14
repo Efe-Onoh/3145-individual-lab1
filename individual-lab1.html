@@ -7,6 +7,7 @@
         <script src="lesson.js"></script>
 
         <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel = "stylesheet" href="style.css">
     </head>
       
     <!--HTML BODY-->
@@ -66,10 +67,10 @@
                         
                     </p>
 
-                    <div v-for="lesson in sortedLessons">
+                    <div class="lesson" v-for="lesson in sortedLessons">
 
                     <figure>
-                        <img v-bind:src="lesson.image">
+                        <img width="300px" height="300px" v-bind:src="lesson.image">
                     </figure>
                     <h2>{{lesson.subject}}</h2>
                     <p>location: {{lesson.location}}</p>
@@ -111,10 +112,10 @@
                     </div>
 
 
-                    <div v-for="lesson in cart">
+                    <div class="lesson" v-for="lesson in cart">
 
                         <figure>
-                            <img v-bind:src="lesson.image">
+                            <img width="300px" height="300px" v-bind:src="lesson.image">
                         </figure>
                         <h2>{{lesson.subject}}</h2>
                         <p>location: {{lesson.location}}</p>

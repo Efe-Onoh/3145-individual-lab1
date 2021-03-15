@@ -1,0 +1,7 @@
+repository link: 
+
+https://github.com/tok-yoCat/3145-individual-lab1
+
+github pages link: 
+
+https://tok-yocat.github.io/3145-individual-lab1/individual-lab1.html

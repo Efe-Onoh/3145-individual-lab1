@@ -15,62 +15,73 @@
         <!-- The element where Vue will mount our application -->
         <div id="app">
             <header>
-                <h1 v-text="sitename"></h1>
-
-                
-           
-            
+                <h1 v-text="sitename"></h1>           
             </header>
 
             <main>
 
-                <div v-if='toShop'> <!-- if showLesson is on, dont show cart, show lesson.-->
+                <div class="Page" v-if='toShop'> <!-- if showLesson is on, dont show cart, show lesson.-->
 
                     <button v-on:click='showCart' v-if="cartItemCount"><!--cartItemCount should return 0 or positive, 0 should be falsy, serving same purpose-->
                         {{ cartItemCount }}
                         <span class="fas fa-cart-plus"></span>cart
                     </button>
     
-                    
-                    <p>
+                    <div class="sort">
+
+                    <div id="sortBy">
 
                         <p>sort by</p> <!--finish this -->
                         
+                        <p>
                         <input type="radio" id="subject" value="subject" v-model="sortBy">
                         <label for="subject">Subject</label>
+                        </p>
                         
+                        <p>
                         <input type="radio" id="location" value="location" v-model="sortBy">
                         <label for="location">Location</label>
-
+                        </p>
                     
+                        <p>
                         <input type="radio" id="price" value="price" v-model="sortBy">
                         <label for="price">Price</label>
-                            
+                        </p>
+                        
+                        
+                        <p>
                         <input type="radio" id="availability" value="numberOfSpaces" v-model="sortBy">
                         <label for="availability">Availability</label>
+                        </p>
 
-                        <p>{{sortBy}}</p>
                         
-                    </p>
+                        
+                    </div>
 
-                    <p>
+                    <div id="sortOrder">
 
                         <p>sort order</p> 
                         
+                        <p>
                         <input type="radio" id="ascending" value="ascending" v-model="sortOrder">
                         <label for="ascending">Ascending</label>
-                        
+                        </p>
+
+                        <p>
                         <input type="radio" id="descending" value="descending" v-model="sortOrder">
                         <label for="descending">Descending</label>
+                        </p>
 
-                        <p>{{sortOrder}}</p>
                         
-                    </p>
+                        
+                    </div>
+
+                    </div>
 
                     <div class="lesson" v-for="lesson in sortedLessons">
 
                     <figure>
-                        <img width="300px" height="300px" v-bind:src="lesson.image">
+                        <img width="250px" height="250px" v-bind:src="lesson.image">
                     </figure>
                     <h2>{{lesson.subject}}</h2>
                     <p>location: {{lesson.location}}</p>
@@ -91,12 +102,12 @@
                     <div>
                         <span v-for="n in product.rating">★</span><span v-for="n in 5-product.rating">☆</span>
                     </div>
-                -->
+                    -->
 
                     </div>
                 </div>
 
-                <div v-else-if="toCart">  <!-- if showLesson is off, dont show lesson, if checkout is off, show cart.-->
+                <div class="page" v-else-if="toCart">  <!-- if showLesson is off, dont show lesson, if checkout is off, show cart.-->
                     
                     <h2>Shopping Cart</h2>
 
@@ -115,7 +126,7 @@
                     <div class="lesson" v-for="lesson in cart">
 
                         <figure>
-                            <img width="300px" height="300px" v-bind:src="lesson.image">
+                            <img  width="250px" height="250px"  v-bind:src="lesson.image">
                         </figure>
                         <h2>{{lesson.subject}}</h2>
                         <p>location: {{lesson.location}}</p>
@@ -148,7 +159,7 @@
 
                 </div>
 
-                <div v-else-if ="toCheckout">
+                <div class="page" v-else-if ="toCheckout">
 
                     <h2>Checkout Page</h2>
 
